@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{43A3FE46-E48F-4619-B68D-0E2D4C10CDA5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Lite_Cario</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;HAVE_CONFIG_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./source;./pixman</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="agg_platform_support.cpp" />
+    <ClCompile Include="agg_test.cpp" />
+    <ClCompile Include="agg_win32_bmp.cpp" />
+    <ClCompile Include="pixman\ic.c" />
+    <ClCompile Include="pixman\icblt.c" />
+    <ClCompile Include="pixman\icbltone.c" />
+    <ClCompile Include="pixman\iccolor.c" />
+    <ClCompile Include="pixman\iccompose.c" />
+    <ClCompile Include="pixman\icformat.c" />
+    <ClCompile Include="pixman\icimage.c" />
+    <ClCompile Include="pixman\icpixels.c" />
+    <ClCompile Include="pixman\icrect.c" />
+    <ClCompile Include="pixman\icstipple.c" />
+    <ClCompile Include="pixman\ictransform.c" />
+    <ClCompile Include="pixman\ictrap.c" />
+    <ClCompile Include="pixman\ictri.c" />
+    <ClCompile Include="pixman\icutil.c" />
+    <ClCompile Include="pixman\pixregion.c" />
+    <ClCompile Include="source\cairo.c" />
+    <ClCompile Include="source\cairo_cache.c" />
+    <ClCompile Include="source\cairo_color.c" />
+    <ClCompile Include="source\cairo_fixed.c" />
+    <ClCompile Include="source\cairo_font.c" />
+    <ClCompile Include="source\cairo_gstate.c" />
+    <ClCompile Include="source\cairo_hull.c" />
+    <ClCompile Include="source\cairo_image_surface.c" />
+    <ClCompile Include="source\cairo_matrix.c" />
+    <ClCompile Include="source\cairo_path.c" />
+    <ClCompile Include="source\cairo_path_bounds.c" />
+    <ClCompile Include="source\cairo_path_fill.c" />
+    <ClCompile Include="source\cairo_path_stroke.c" />
+    <ClCompile Include="source\cairo_pattern.c" />
+    <ClCompile Include="source\cairo_pen.c" />
+    <ClCompile Include="source\cairo_polygon.c" />
+    <ClCompile Include="source\cairo_slope.c" />
+    <ClCompile Include="source\cairo_spline.c" />
+    <ClCompile Include="source\cairo_surface.c" />
+    <ClCompile Include="source\cairo_traps.c" />
+    <ClCompile Include="source\cairo_wideint.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="agg_platform_support.h" />
+    <ClInclude Include="agg_win32_bmp.h" />
+    <ClInclude Include="pixman\config.h" />
+    <ClInclude Include="pixman\icimage.h" />
+    <ClInclude Include="pixman\icint.h" />
+    <ClInclude Include="pixman\icrop.h" />
+    <ClInclude Include="pixman\pixman.h" />
+    <ClInclude Include="pixman\pixregionint.h" />
+    <ClInclude Include="pixman\slim_internal.h" />
+    <ClInclude Include="source\cairo-features.h" />
+    <ClInclude Include="source\cairo.h" />
+    <ClInclude Include="source\cairoint.h" />
+    <ClInclude Include="source\cairo_wideint.h" />
+    <ClInclude Include="source\config.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

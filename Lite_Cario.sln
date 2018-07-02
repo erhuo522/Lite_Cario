@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lite_Cario", "Lite_Cario\Lite_Cario.vcxproj", "{43A3FE46-E48F-4619-B68D-0E2D4C10CDA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43A3FE46-E48F-4619-B68D-0E2D4C10CDA5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{43A3FE46-E48F-4619-B68D-0E2D4C10CDA5}.Debug|Win32.Build.0 = Debug|Win32
+		{43A3FE46-E48F-4619-B68D-0E2D4C10CDA5}.Release|Win32.ActiveCfg = Release|Win32
+		{43A3FE46-E48F-4619-B68D-0E2D4C10CDA5}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pximan">
+      <UniqueIdentifier>{02ddd7fb-63b4-40d9-9dd5-6bdf4f41d3fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cario">
+      <UniqueIdentifier>{729438e2-93ff-4579-ad9a-b59982d68dd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pixman\ic.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icblt.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icbltone.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\iccolor.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\iccompose.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icformat.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icimage.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icpixels.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icrect.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icstipple.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\ictransform.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\ictrap.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\ictri.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\icutil.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="pixman\pixregion.c">
+      <Filter>pximan</Filter>
+    </ClCompile>
+    <ClCompile Include="agg_platform_support.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="agg_test.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="agg_win32_bmp.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_cache.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_color.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_fixed.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_gstate.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_hull.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_image_surface.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_matrix.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_path.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_path_bounds.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_path_fill.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_path_stroke.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_pattern.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_pen.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_polygon.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_slope.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_spline.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_surface.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_traps.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_wideint.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+    <ClCompile Include="source\cairo_font.c">
+      <Filter>cario</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pixman\config.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="pixman\icimage.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="pixman\icint.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="pixman\icrop.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="pixman\pixman.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="pixman\pixregionint.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="pixman\slim_internal.h">
+      <Filter>pximan</Filter>
+    </ClInclude>
+    <ClInclude Include="agg_platform_support.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="agg_win32_bmp.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="source\cairo.h">
+      <Filter>cario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\cairo_wideint.h">
+      <Filter>cario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\cairo-features.h">
+      <Filter>cario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\cairoint.h">
+      <Filter>cario</Filter>
+    </ClInclude>
+    <ClInclude Include="source\config.h">
+      <Filter>cario</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
