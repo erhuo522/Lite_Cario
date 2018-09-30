@@ -309,58 +309,14 @@ _compare_cairo_edge_by_current_x_slope (const void *av, const void *bv)
     return ret;
 }
 
-/* XXX: Both _compute_x and _compute_inverse_slope will divide by zero
-   for horizontal lines. Now, we "know" that when we are tessellating
-   polygons that the polygon data structure discards all horizontal
-   edges, but there's nothing here to guarantee that. I suggest the
-   following:
-
-   A) Move all of the polygon tessellation code out of xrtraps.c and
-      into xrpoly.c, (in order to be in the same module as the code
-      discarding horizontal lines).
-
-   OR
-
-   B) Re-implement the line intersection in a way that avoids all
-      division by zero. Here's one approach. The only disadvantage
-      might be that that there are not meaningful names for all of the
-      sub-computations -- just a bunch of determinants. I haven't
-      looked at complexity, (both are probably similar and it probably
-      doesn't matter much anyway).
-
-static double
-_det (double a, double b, double c, double d)
-{
-    return a * d - b * c;
-}
-
-static int
-_lines_intersect (cairo_line_t *l1, cairo_line_t *l2, cairo_fixed_t *y_intersection)
-{
-    double dx1 = cairo_fixed_to_double (l1->p1.x - l1->p2.x);
-    double dy1 = cairo_fixed_to_double (l1->p1.y - l1->p2.y);
-
-    double dx2 = cairo_fixed_to_double (l2->p1.x - l2->p2.x);
-    double dy2 = cairo_fixed_to_double (l2->p1.y - l2->p2.y);
-
-    double l1_det, l2_det;
-
-    double den_det = _det (dx1, dy1, dx2, dy2);
-
-    if (den_det == 0)
-	return 0;
-
-    l1_det = _det (l1->p1.x, l1->p1.y,
-		  l1->p2.x, l1->p2.y);
-    l2_det = _det (l2->p1.x, l2->p1.y,
-		  l2->p2.x, l2->p2.y);
-
-    *y_intersection = _det (l1_det, dy1,
-			   l2_det, dy2) / den_det;
-
-    return 1;
-}
-*/
+ 
+/*
+ *    求直线与f(x）= y的交点x
+ *    直线两点式方程：
+ *     (x-x1)*(y2-y1) - (x2-x1)(y-y1) = 0;
+ *     (x-x1)dy - dx(y-y1) = 0;
+ *      求得：x =  dx(y-y1)/dy + x1
+ */
 static cairo_fixed_16_16_t
 _compute_x (cairo_line_t *line, cairo_fixed_t y)
 {
@@ -371,6 +327,9 @@ _compute_x (cairo_line_t *line, cairo_fixed_t y)
     return line->p1.x + (ex / dy);
 }
 
+/*
+* 计算斜率的倒数：dx/dy
+*/
 static double
 _compute_inverse_slope (cairo_line_t *l)
 {
@@ -378,6 +337,14 @@ _compute_inverse_slope (cairo_line_t *l)
 	    _cairo_fixed_to_double (l->p2.y - l->p1.y));
 }
 
+/*
+ * 求直线在x轴上的截距
+ *     (x-x1)*(y2-y1) - (x2-x1)(y-y1) = 0;
+ *     (x-x1)*(y2-y1) =(x2-x1)(0-y1);
+ *     (x-x1) = -y1 *(x2-x1)/(y2-y1);
+ *      x = x1 - y1 *(x2-x1)/(y2-y1);
+ *      x = x1 - y1 * inverse_slope;
+ */
 static double
 _compute_x_intercept (cairo_line_t *l, double inverse_slope)
 {
@@ -467,7 +434,7 @@ _line_segs_intersect_ceil (cairo_line_t *l1, cairo_line_t *l2, cairo_fixed_t *y_
    y = min_p1_y (inactive)
 
    while (num_active || num_inactive) {
-   	active = all edges containing y
+   	active = all edges containing y 
 
 	next_y = min ( min_p2_y (active), min_p1_y (inactive), min_intersection (active) )
 
@@ -507,7 +474,8 @@ _cairo_traps_tessellate_polygon (cairo_traps_t		*traps,
     y = edges[0].edge.p1.y;
     active = 0;
     inactive = 0;
-    while (active < num_edges) {
+    while (active < num_edges) 
+	{
 	while (inactive < num_edges && edges[inactive].edge.p1.y <= y)
 	    inactive++;
 
@@ -612,28 +580,37 @@ _cairo_traps_contain (cairo_traps_t *traps, double x, double y)
 #define MIN(a,b) ((a) < (b) ? (a) : (b))
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 
+//计算梯形的box
 static void
 _cairo_trap_extents (cairo_trapezoid_t *t, cairo_box_t *extents)
 {
     cairo_fixed_t x;
     
-    if (t->top < extents->p1.y)
-	extents->p1.y = t->top;
+	if (t->top < extents->p1.y)
+	{
+		extents->p1.y = t->top;
+	}
     
-    if (t->bottom > extents->p2.y)
-	extents->p2.y = t->bottom;
-    
-    x = MIN (_compute_x (&t->left, t->top),
-	     _compute_x (&t->left, t->bottom));
-    if (x < extents->p1.x)
-	extents->p1.x = x;
-    
-    x = MAX (_compute_x (&t->right, t->top),
-	     _compute_x (&t->right, t->bottom));
-    if (x > extents->p2.x)
-	extents->p2.x = x;
+	if (t->bottom > extents->p2.y)
+	{
+		extents->p2.y = t->bottom;
+	}
+	
+    x = MIN (_compute_x (&t->left, t->top),   _compute_x (&t->left, t->bottom)); 
+	if (x < extents->p1.x)
+	{
+		extents->p1.x = x;
+	}
+
+    x = MAX (_compute_x (&t->right, t->top),  _compute_x (&t->right, t->bottom));
+	if (x > extents->p2.x)
+	{
+		extents->p2.x = x;
+	}
+	
 }
 
+//计算所有梯形的box
 void
 _cairo_traps_extents (cairo_traps_t *traps, cairo_box_t *extents)
 {

@@ -1,47 +1,4 @@
-/* cairo - a vector graphics library with display and print output
- *
- * Copyright © 2002 University of Southern California
- *
- * This library is free software; you can redistribute it and/or
- * modify it either under the terms of the GNU Lesser General Public
- * License version 2.1 as published by the Free Software Foundation
- * (the "LGPL") or, at your option, under the terms of the Mozilla
- * Public License Version 1.1 (the "MPL"). If you do not alter this
- * notice, a recipient may use your version of this file under either
- * the MPL or the LGPL.
- *
- * You should have received a copy of the LGPL along with this library
- * in the file COPYING-LGPL-2.1; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * You should have received a copy of the MPL along with this library
- * in the file COPYING-MPL-1.1
- *
- * The contents of this file are subject to the Mozilla Public License
- * Version 1.1 (the "License"); you may not use this file except in
- * compliance with the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY
- * OF ANY KIND, either express or implied. See the LGPL or the MPL for
- * the specific language governing rights and limitations.
- *
- * The Original Code is the cairo graphics library.
- *
- * The Initial Developer of the Original Code is University of Southern
- * California.
- *
- * Contributor(s):
- *	Carl D. Worth <cworth@isi.edu>
- */
-
-/*
- * These definitions are solely for use by the implementation of Cairo
- * and constitute no kind of standard.  If you need any of these
- * functions, please drop me a note.  Either the library needs new
- * functionality, or there's a way to do what you need using the
- * existing published interfaces. cworth@isi.edu
- */
-
+﻿
 #ifndef _CAIROINT_H_
 #define _CAIROINT_H_
 
@@ -147,14 +104,15 @@ typedef struct cairo_distance_double {
     double dy;
 } cairo_distance_double_t;
 
+//2d盒子和线段
 typedef struct cairo_line {
     cairo_point_t p1;
     cairo_point_t p2;
 } cairo_line_t, cairo_box_t;
 
 typedef struct cairo_trapezoid {
-    cairo_fixed_t top, bottom;
-    cairo_line_t left, right;
+    cairo_fixed_t top, bottom;   //梯形底和高
+    cairo_line_t left, right;    //梯形左右两条边所在直线
 } cairo_trapezoid_t;
 
 typedef struct cairo_rectangle_int {
@@ -218,13 +176,13 @@ typedef struct cairo_edge {
 } cairo_edge_t;
 
 typedef struct cairo_polygon {
-    int num_edges;
-    int edges_size;
-    cairo_edge_t *edges;
+    int num_edges;             /*边的数量*/
+    int edges_size;            /*可以存储的最大边数*/
+    cairo_edge_t *edges;       /*边的数组*/
 
-    cairo_point_t first_point;
-    cairo_point_t current_point;
-    int has_current_point;
+    cairo_point_t first_point;   /*第一个点*/
+    cairo_point_t current_point; /*当前点*/
+    int has_current_point;       /*是否存在当前点 */
 
     int closed;
 } cairo_polygon_t;

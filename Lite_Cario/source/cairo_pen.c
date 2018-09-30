@@ -98,7 +98,8 @@ _cairo_pen_init (cairo_pen_t *pen, double radius, cairo_gstate_t *gstate)
      * orientation in device space, flip the pen if the transformation matrix
      * is reflecting
      */
-    for (i=0; i < pen->num_vertices; i++) {
+    for (i=0; i < pen->num_vertices; i++) 
+	{
 	double theta = 2 * M_PI * i / (double) pen->num_vertices;
 	double dx = radius * cos (reflect ? -theta : theta);
 	double dy = radius * sin (reflect ? -theta : theta);

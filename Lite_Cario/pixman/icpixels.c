@@ -71,7 +71,9 @@ IcPixelsCreate (int width, int height, int depth)
     if (!pixels)
 	return NULL;
 
+	 
     buf = (pixman_bits_t *) ((char *)pixels + base + adjust);
+	memset(buf, 255, buf_size - adjust);
 
     IcPixelsInit (pixels, buf, width, height, depth, bpp, stride);
 

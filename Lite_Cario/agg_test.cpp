@@ -28,7 +28,33 @@ public:
 		cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, 800, 600);
 		cairo_t *cr = cairo_create();
 		cairo_set_target_surface(cr, surface); 
-		
+
+		//====================================================================
+		/*
+		cairo_set_rgb_color(cr, 0, 0, 0);
+		cairo_move_to(cr, 100, 100);
+		cairo_line_to(cr, 400, 400);
+		cairo_move_to(cr, 400, 100);
+		cairo_line_to(cr, 100, 400);
+		cairo_set_line_width(cr, 20);
+		cairo_stroke(cr);
+		*/
+		cairo_rectangle(cr, 100, 100, 150, 150);
+		cairo_set_rgb_color(cr, 10, 0, 0);
+		cairo_set_alpha(cr, 0.80);
+		cairo_fill(cr);
+	 /*	
+		cairo_rectangle(cr, 100, 250, 150, 150);
+		cairo_set_rgb_color(cr, 0, 1, 0);
+		cairo_set_alpha(cr, 0.60);
+		cairo_fill(cr);
+
+		cairo_rectangle(cr, 250, 100, 150, 150);
+		cairo_set_rgb_color(cr, 0, 0, 1);
+		cairo_set_alpha(cr, 0.40);
+		cairo_fill(cr);
+
+		*/
 		//---------------------------------------------------------------------
 		/*
 		//圆形 
@@ -45,7 +71,7 @@ public:
 	    cairo_set_source_rgb (cr,  0.627, 0, 0);
 		cairo_rectangle ( cr, 320 , 320 , 120 , 80 ) ; 
 		cairo_stroke ( cr) ;
-		*/
+		 
 
  
 		 //画直线 
@@ -55,7 +81,7 @@ public:
 		cairo_line_to( cr, 500 , 300); 
 		cairo_line_to(cr, 500, 500);
 		cairo_stroke( cr) ;
-		
+	*/	
 		//把图像内存数据拿走
         m_pixel_map.copy_bits( cairo_image_surface_get_data(surface), false);
 
